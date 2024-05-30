@@ -16,10 +16,12 @@ pipeline {
                             cd 2-AgroCD/code-repo
                             pwd
                             ls -al
+                            docker build -t csnkarthik/testlogin:latest .
+                            docker build -t csnkarthik/testlogin:${appVersion} .
                         """
                         
-                        sh "docker build -t csnkarthik/testlogin:latest ."
-                        sh "docker build -t csnkarthik/testlogin:${appVersion} ."
+                        // sh "docker build -t csnkarthik/testlogin:latest ."
+                        // sh "docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
                 }
             }
