@@ -13,8 +13,8 @@ pipeline {
                         sh """
                             pwd
                             cd 2-AgroCD/code-repo
-                            sh 'pwd'
-                            sh 'ls -al'
+                            pwd
+                            ls -al
                         """
                         // sh "sudo docker build -t csnkarthik/testlogin:latest ."
                         // sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
