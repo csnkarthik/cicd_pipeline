@@ -11,7 +11,8 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh 'pwd'
-                        cd 'code-repo'
+                        cd '2-ArroCD/code-repo'
+                        sh 'pwd'
                         sh "sudo docker build -t csnkarthik/testlogin:latest ."
                         sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
@@ -19,16 +20,15 @@ pipeline {
             }
         }
         
-        stage('Push Docker Image') {
-            steps {
-                script {
-
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "sudo docker push csnkarthik/testlogin:latest "
-                        sh "sudo docker push csnkarthik/testlogin:${appVersion}"
-                    }
-                }
-            }
-        }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script {
+        //             withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+        //                 sh "sudo docker push csnkarthik/testlogin:latest "
+        //                 sh "sudo docker push csnkarthik/testlogin:${appVersion}"
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
