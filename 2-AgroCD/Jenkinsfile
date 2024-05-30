@@ -19,23 +19,22 @@ pipeline {
                             docker build -t csnkarthik/testlogin:latest .
                             docker build -t csnkarthik/testlogin:${appVersion} .
                         """
-                        
-                        // sh "docker build -t csnkarthik/testlogin:latest ."
-                        // sh "docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
                 }
             }
         }
         
-        // stage('Push Docker Image') {
-        //     steps {
-        //         script {
-        //             withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-        //                 sh "sudo docker push csnkarthik/testlogin:latest "
-        //                 sh "sudo docker push csnkarthik/testlogin:${appVersion}"
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                        sh """
+                         docker push csnkarthik/testlogin:latest 
+                         docker push csnkarthik/testlogin:${appVersion}
+                         """
+                    }
+                }
+            }
+        }
     }
 }
