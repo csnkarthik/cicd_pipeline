@@ -18,8 +18,8 @@ pipeline {
                             ls -al
                         """
                         
-                        sh "sudo docker build -t csnkarthik/testlogin:latest ."
-                        sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
+                        sh "docker build -t csnkarthik/testlogin:latest ."
+                        sh "docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
                 }
             }
