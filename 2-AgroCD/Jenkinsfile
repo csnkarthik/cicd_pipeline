@@ -11,9 +11,9 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh 'pwd'
-                        cd 2-ArroCD/code-repo
+                        sh 'cd 2-ArroCD/code-repo'
                         sh 'pwd'
-                        ls -al
+                        sh 'ls -al'
                         // sh "sudo docker build -t csnkarthik/testlogin:latest ."
                         // sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
