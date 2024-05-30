@@ -10,14 +10,16 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                        
                         sh """
                             pwd
                             cd 2-AgroCD/code-repo
                             pwd
                             ls -al
                         """
-                        // sh "sudo docker build -t csnkarthik/testlogin:latest ."
-                        // sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
+                        
+                        sh "sudo docker build -t csnkarthik/testlogin:latest ."
+                        sh "sudo docker build -t csnkarthik/testlogin:${appVersion} ."
                     }
                 }
             }
