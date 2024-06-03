@@ -17,5 +17,5 @@ spec:
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}" 
         name: sample
-      imagePullSecrets:
-      - name: helm-secret 
+      # imagePullSecrets:
+      # - name: helm-secret 
