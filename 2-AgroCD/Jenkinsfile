@@ -41,7 +41,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sed -i 's/tag: "v[0-1]"/tag: "${appVersion}"/' 2-AgroCD/code-repo/values.yaml
+                        sed -i 's/tag: "v[0-1]"/tag: "${appVersion}"/' 2-AgroCD/manifest-repo/test-login-app/values.yaml
                     """
                 }
             }
