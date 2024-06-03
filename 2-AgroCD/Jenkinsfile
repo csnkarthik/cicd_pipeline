@@ -36,5 +36,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Update the manifest') {
+            steps {
+                script {
+                    sh """
+                        sed -i 's/tag: "v[0-1]"/tag: "${appVersion}"/' 2-AgroCD/code-repo/values.yaml
+                    """
+                }
+            }
+        }
     }
 }
